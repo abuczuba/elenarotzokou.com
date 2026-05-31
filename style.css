@@ -1,0 +1,263 @@
+/*
+ * Global styles for Elena Rotzokou’s website
+ *
+ * This stylesheet defines the overall look and feel of the
+ * site. It imports a cursive script for the name/logo and a
+ * classic serif for body copy, then applies consistent margins,
+ * colours and spacing across the various pages. The palette
+ * and typography are inspired by the clean, elegant design of
+ * the reference site.
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Libre+Baskerville:wght@400;700&family=Playfair+Display:wght@700&display=swap');
+
+/*
+ * Colour palette
+ *
+ * To give the site a more polished, feminine feel without veering into
+ * saccharine pink, we define a set of CSS variables for the background,
+ * text and accent colours. The base background is a very light blush
+ * that complements Elena’s portrait, while the accent tones draw from
+ * dusty rose and deep plum. These variables make it easy to adjust the
+ * palette later without hunting through the stylesheet.
+ */
+
+:root {
+    --bg-colour: #f7f2f5;        /* light blush background */
+    --text-colour: #3d3337;      /* dark plum‑brown for text */
+    --accent-colour: #b76d8e;    /* dusty rose for links/buttons */
+    --accent-hover: #a05476;     /* slightly deeper rose for hover states */
+    --brand-colour: #934a6a;     /* deep rose for the logo */
+    --muted-text: #666;          /* muted grey for footers and secondary text */
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Libre Baskerville', serif;
+    background-color: var(--bg-colour);
+    color: var(--text-colour);
+    line-height: 1.6;
+}
+
+/* Header containing the brand and navigation */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    background-color: transparent;
+    flex-wrap: wrap;
+}
+
+/* Cursive logo/brand in the top-left corner */
+.brand a {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.25rem;
+    text-decoration: none;
+    color: var(--brand-colour);
+}
+
+/* Navigation links aligned to the right */
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+}
+
+nav a {
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-colour);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    font-size: 0.95rem;
+    display: flex;
+    align-items: center;
+}
+
+nav a:hover {
+    background-color: var(--accent-hover);
+    color: #fff;
+}
+
+/* Icons in the navigation: scale to match text height */
+.icon {
+    height: 1em;
+    width: 1em;
+    margin-left: 0.3rem;
+    fill: currentColor;
+    flex-shrink: 0;
+}
+
+/* Hero section on the home page */
+.hero {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    background-color: var(--bg-colour);
+}
+
+.hero-image {
+    flex: 1 1 300px;
+    text-align: center;
+    padding: 1rem;
+}
+
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.hero-text {
+    flex: 1 1 300px;
+    padding: 1rem 2rem;
+}
+
+h1, h2 {
+    font-family: 'Playfair Display', serif;
+    margin-top: 0;
+    color: var(--brand-colour);
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+    margin-bottom: 1rem;
+}
+
+/* Generic section styling for interior pages */
+.section {
+    padding: 3rem 2rem;
+}
+
+.section p {
+    margin-bottom: 1rem;
+}
+
+.section ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+.section li {
+    margin-bottom: 0.75rem;
+}
+
+/* Contact form styling */
+form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1rem;
+}
+
+form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+form button {
+    display: inline-block;
+    background-color: var(--accent-colour);
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+form button:hover {
+    background-color: var(--accent-hover);
+}
+
+/* Footer styling */
+.footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: transparent;
+    font-size: 0.875rem;
+    color: var(--muted-text);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav {
+        margin-top: 0.5rem;
+    }
+
+    .hero {
+        flex-direction: column;
+    }
+
+    .hero-text, .hero-image {
+        flex: 1 1 100%;
+        padding: 1rem 0;
+    }
+
+    nav a {
+        font-size: 0.9rem;
+        padding: 0.25rem;
+    }
+}
+
+/*
+ * Decorative divider image
+ *
+ * An orchid‑themed banner is used beneath the navigation on every page to
+ * visually separate the header from the main content. Treat it like any
+ * other responsive image: set the width to 100% so it scales across
+ * screen sizes and remove default margins. The divider is inserted via
+ * <img class="divider" src="images/divider.png" /> in each page.
+ */
+img.divider {
+    display: block;
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * LinkedIn branding
+ *
+ * The LinkedIn SVG icon uses the `linkedin` class so its fill colour can
+ * match the official LinkedIn blue. Keeping the colour here instead of
+ * inline makes it easy to adjust if the branding changes later.
+ */
+.linkedin {
+    fill: #0A66C2;
+}
